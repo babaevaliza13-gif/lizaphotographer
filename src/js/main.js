@@ -15,7 +15,7 @@ let activeImages = [];
 let activeImageIndex = 0;
 
 const t = () => config.languages[currentLang] || config.languages.en;
-const mediaUrl = (src) => (String(src).startsWith("/uploads/") ? `/api/media?path=public${encodeURIComponent(src)}` : src);
+const mediaUrl = (src) => src;
 
 function init() {
   applyTheme();
