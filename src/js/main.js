@@ -29,7 +29,7 @@ function renderMenu() {
   menuLinks.innerHTML = config.nav
     .map((item) =>
       item.id === "contact"
-        ? `<a class="magnetic" href="/contact.html">${item.label}</a>`
+        ? `<a class="magnetic" href="/contact">${item.label}</a>`
         : `<a class="magnetic" href="#${item.id}" data-route="${item.id}">${item.label}</a>`
     )
     .join("");
@@ -37,7 +37,7 @@ function renderMenu() {
 
 function renderRoute(route) {
   if (route === "contact") {
-    location.href = "/contact.html";
+    location.href = "/contact";
     return;
   }
   currentRoute = route;
