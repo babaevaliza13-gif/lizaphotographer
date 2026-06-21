@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Liza Babaieva Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="admin-body">
+    <script>
+      if (sessionStorage.getItem("liza-admin-session") !== "1") {
+        location.replace("/login.html");
+      }
+    </script>
+    <main class="admin-shell" data-admin-shell>
+      <aside>
+        <p class="admin-kicker">Site control</p>
+        <h1>Liza Babaieva</h1>
+        <nav class="admin-nav">
+          <a href="#identity">Identity</a>
+          <a href="#appearance">Appearance</a>
+          <a href="#seo">SEO</a>
+          <a href="#texts">Texts</a>
+          <a href="#projects">Projects</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+          <a href="#database">Database</a>
+          <a href="#security">Security</a>
+        </nav>
+        <a href="/" target="_blank" rel="noreferrer">Open site</a>
+        <button type="button" data-logout>Log out</button>
+      </aside>
+
+      <form class="admin-panel" data-admin-form>
+        <section id="identity" class="admin-section">
+          <h2>Identity</h2>
+          <label>Name<input name="identity.name" /></label>
+          <label>Role<input name="identity.role" /></label>
+          <label>Location<input name="identity.location" /></label>
+          <label>Copyright<textarea name="identity.copyright" rows="3"></textarea></label>
+        </section>
+
+        <section id="appearance" class="admin-section">
+          <h2>Appearance</h2>
+          <p class="admin-note">Choose a light editorial theme or edit its colors directly.</p>
+          <div class="theme-grid" data-theme-fields></div>
+        </section>
+
+        <section id="seo" class="admin-section">
+          <h2>SEO</h2>
+          <div class="admin-lang-grid" data-seo-fields></div>
+        </section>
+
+        <section id="texts" class="admin-section">
+          <h2>Text content</h2>
+          <div class="admin-lang-grid" data-language-fields></div>
+        </section>
+
+        <section id="projects" class="admin-section">
+          <div class="section-head">
+            <h2>Projects, images and video</h2>
+            <button type="button" data-add-project>Add project</button>
+          </div>
+          <div data-projects-editor></div>
+        </section>
+
+        <section id="services" class="admin-section">
+          <h2>Services</h2>
+          <label>One service per line<textarea name="services" rows="8"></textarea></label>
+        </section>
+
+        <section id="contact" class="admin-section">
+          <h2>Contact and notifications</h2>
+          <label>Telegram URL<input name="contact.telegramUrl" type="url" /></label>
+          <label>Instagram URL<input name="contact.instagramUrl" type="url" /></label>
+          <label>Email<input name="contact.email" type="email" /></label>
+          <label>Notification email<input name="contact.notificationEmail" type="email" /></label>
+          <p class="admin-note">Telegram bot token, chat ID and email API key are stored in Vercel environment variables, not in browser code.</p>
+        </section>
+
+        <section id="database" class="admin-section">
+          <h2>Vercel and GitHub storage</h2>
+          <label>Provider
+            <select name="database.provider">
+              <option value="vercel-github">Vercel API + GitHub repository</option>
+              <option value="local">Local browser fallback</option>
+            </select>
+          </label>
+          <label>Content JSON path<input name="database.contentPath" /></label>
+          <label>Upload folder<input name="database.uploadDir" /></label>
+          <p class="admin-note">Set GitHub and notification secrets in Vercel Project Settings -> Environment Variables.</p>
+          <button type="button" data-test-database>Validate API</button>
+          <p data-database-status role="status"></p>
+        </section>
+
+        <section id="security" class="admin-section">
+          <h2>Admin password</h2>
+          <label>New password<input name="newPassword" type="password" autocomplete="new-password" /></label>
+          <p class="admin-note">The password hash is saved with the site config. For the first deployment, the default password is 12345.</p>
+        </section>
+
+        <div class="admin-actions sticky-actions">
+          <button type="submit">Save all changes</button>
+          <button type="button" data-export>Export JSON</button>
+          <button type="button" data-reset>Reset</button>
+          <p data-admin-status role="status"></p>
+        </div>
+      </form>
+    </main>
+    <script type="module" src="/src/js/admin.js"></script>
+  </body>
+</html>
