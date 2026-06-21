@@ -266,24 +266,6 @@
         "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1300&q=85"
       ],
       "video": ""
-    },
-    {
-      "id": "project-9",
-      "type": "New Project",
-      "title": "Untitled",
-      "year": "2026",
-      "color": "#ead8c3",
-      "images": [],
-      "video": ""
-    },
-    {
-      "id": "project-10",
-      "type": "New Project",
-      "title": "Untitled",
-      "year": "2026",
-      "color": "#ead8c3",
-      "images": [],
-      "video": ""
     }
   ],
   "services": [
