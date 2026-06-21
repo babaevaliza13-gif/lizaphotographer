@@ -1,7 +1,8 @@
 import { getStoredFile } from "./_lib/github.js";
 
 export default async function handler(request, response) {
-  const rawPath = String(request.query?.path || "");
+  const url = new URL(request.url || "", "https://lizaphotographer.vercel.app");
+  const rawPath = String(request.query?.path || url.searchParams.get("path") || "");
   const path = rawPath.replace(/^\/+/, "");
 
   if (!path.startsWith("public/uploads/")) {
