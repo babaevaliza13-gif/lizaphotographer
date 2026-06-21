@@ -404,6 +404,7 @@ label {
   display: grid;
   grid-template-columns: minmax(560px, 620px) max-content;
   gap: 28px;
+  align-items: start;
   background: var(--page-bg, var(--paper));
 }
 
@@ -467,10 +468,11 @@ label {
 
 .video-frame {
   position: relative;
-  width: min(1100px, 100%);
   aspect-ratio: 16 / 9;
-  align-self: center;
-  width: min(840px, 70vw);
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  width: min(840px, 62vw);
   margin: 0;
   background: var(--ink);
 }
@@ -482,11 +484,23 @@ label {
 }
 
 .next-projects {
+  grid-column: 1 / -1;
+  grid-row: 2;
   display: flex;
-  align-self: end;
+  align-self: start;
   gap: 1px;
-  margin: 0 34px 32px 0;
+  width: max-content;
+  margin: 0 34px 32px;
   background: var(--line);
+}
+
+.project-page:has(.video-frame) .project-run {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.project-page:has(.video-frame) .next-projects {
+  grid-row: 3;
 }
 
 .next-projects a {

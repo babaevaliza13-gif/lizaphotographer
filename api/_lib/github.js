@@ -23,6 +23,11 @@ export async function getStoredConfig() {
   return JSON.parse(json);
 }
 
+export async function getStoredFile(path) {
+  if (!hasGitHubConfig()) return null;
+  return getFile(path);
+}
+
 export async function saveStoredConfig(config) {
   return putFile({
     path: contentPath(),

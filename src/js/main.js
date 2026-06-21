@@ -15,6 +15,7 @@ let activeImages = [];
 let activeImageIndex = 0;
 
 const t = () => config.languages[currentLang] || config.languages.en;
+const mediaUrl = (src) => (String(src).startsWith("/uploads/") ? `/api/media?path=public${encodeURIComponent(src)}` : src);
 
 function init() {
   applyTheme();
@@ -60,7 +61,7 @@ function renderHome() {
   const allImages = config.projects.flatMap((project) =>
     project.images.map((src, imageIndex) => ({ src, project, imageIndex }))
   );
-  activeImages = allImages.map((item) => ({ src: item.src, caption: `${item.project.type} / ${item.project.title}` }));
+  activeImages = allImages.map((item) => ({ src: mediaUrl(item.src), caption: `${item.project.type} / ${item.project.title}` }));
   app.innerHTML = `
     <section class="portfolio-stage home-stage page-warm" id="home">
       <div class="stage-intro reveal">
@@ -73,7 +74,7 @@ function renderHome() {
           .map(
             (item, index) => `
               <button class="run-image reveal magnetic" type="button" data-index="${index}" style="--page-tint:${item.project.color}">
-                <img src="${item.src}" alt="${item.project.title} image ${item.imageIndex + 1} by ${config.identity.name}" />
+                <img src="${mediaUrl(item.src)}" alt="${item.project.title} image ${item.imageIndex + 1} by ${config.identity.name}" />
                 <span>${item.project.type}</span>
               </button>
             `
@@ -104,7 +105,7 @@ function renderProject(project) {
           .map(
             (src, index) => `
               <button class="run-image reveal magnetic" type="button" data-index="${index}" aria-label="Open ${project.title} image ${index + 1}">
-                <img src="${src}" alt="${project.title} image ${index + 1} by ${config.identity.name}" />
+                <img src="${mediaUrl(src)}" alt="${project.title} image ${index + 1} by ${config.identity.name}" />
               </button>
             `
           )
@@ -117,7 +118,7 @@ function renderProject(project) {
       </div>
     </section>
   `;
-  activeImages = project.images.map((src, index) => ({ src, caption: `${project.title}, ${index + 1}` }));
+  activeImages = project.images.map((src, index) => ({ src: mediaUrl(src), caption: `${project.title}, ${index + 1}` }));
 }
 
 function renderAbout() {
