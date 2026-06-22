@@ -205,35 +205,46 @@ button {
 
 .stage-intro {
   position: absolute;
-  left: 34px;
-  bottom: 42px;
+  left: 0;
+  bottom: 0;
   z-index: 2;
-  padding: 0;
+  padding: 80px 34px 42px;
+  width: min(520px, 44vw);
+  background: linear-gradient(
+    to top,
+    rgba(20, 15, 10, 0.82) 0%,
+    rgba(20, 15, 10, 0.4) 60%,
+    transparent 100%
+  );
   color: var(--white);
-  text-shadow: 0 1px 28px rgba(0, 0, 0, 0.52);
 }
 
 .stage-intro p,
 .stage-intro span {
   display: block;
-  margin: 0 0 18px;
-  max-width: 280px;
-  color: rgba(255, 250, 242, 0.76);
-  font-size: 14px;
-  line-height: 1.55;
+  margin: 0 0 12px;
+  max-width: 320px;
+  color: rgba(255, 250, 242, 0.82);
+  font-size: 13px;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
 }
 
 .stage-intro p {
   text-transform: uppercase;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   font-size: 10px;
+  color: rgba(255, 250, 242, 0.6);
+  margin-bottom: 16px;
 }
 
 .stage-intro h1 {
-  margin-bottom: 18px;
-  font-size: 64px;
+  margin-bottom: 14px;
+  font-size: 58px;
+  line-height: 1.0;
   color: var(--white);
   font-weight: 300;
+  letter-spacing: -0.01em;
 }
 
 .horizontal-run {
