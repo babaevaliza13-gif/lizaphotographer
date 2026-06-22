@@ -1119,6 +1119,13 @@ label {
     display: grid;
   }
 
+  .mobile-nav-open .side-rail {
+    height: auto;
+    min-height: 100vh;
+    background: var(--white);
+    z-index: 200;
+  }
+
   .rail-language {
     grid-column: 1 / -1;
   }
@@ -1130,9 +1137,9 @@ label {
   .mobile-menu-toggle {
     position: static;
     display: block;
-    min-width: 72px;
-    min-height: 36px;
-    padding: 8px 12px;
+    min-width: 80px;
+    min-height: 44px;
+    padding: 10px 16px;
     border: 1px solid var(--line);
     background: var(--white);
     color: var(--ink);

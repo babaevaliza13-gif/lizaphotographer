@@ -174,6 +174,14 @@ function bindGlobalEvents() {
 
   window.addEventListener("popstate", () => renderRoute(location.hash.replace("#", "") || "home"));
   mobileMenuToggle.addEventListener("click", toggleMobileMenu);
+  document.addEventListener("click", (event) => {
+    if (document.body.classList.contains("mobile-nav-open")) {
+      const sideRail = document.querySelector("[data-header]");
+      if (sideRail && !sideRail.contains(event.target)) {
+        closeMobileMenu();
+      }
+    }
+  });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       closeMobileMenu();
