@@ -158,6 +158,7 @@ function applySeo() {
 
 function bindGlobalEvents() {
   document.addEventListener("click", (event) => {
+    if (event.target.closest("[data-mobile-menu-toggle]")) return;
     const externalLink = event.target.closest("a[href^='/contact'], a[href^='/login'], a[href^='/admin']");
     if (externalLink) {
       location.href = externalLink.getAttribute("href");
@@ -170,17 +171,18 @@ function bindGlobalEvents() {
       history.pushState(null, "", routeLink.getAttribute("href"));
       renderRoute(routeLink.dataset.route);
     }
-  });
-
-  window.addEventListener("popstate", () => renderRoute(location.hash.replace("#", "") || "home"));
-  mobileMenuToggle.addEventListener("click", toggleMobileMenu);
-  document.addEventListener("click", (event) => {
     if (document.body.classList.contains("mobile-nav-open")) {
       const sideRail = document.querySelector("[data-header]");
       if (sideRail && !sideRail.contains(event.target)) {
         closeMobileMenu();
       }
     }
+  });
+
+  window.addEventListener("popstate", () => renderRoute(location.hash.replace("#", "") || "home"));
+  mobileMenuToggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMobileMenu();
   });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
