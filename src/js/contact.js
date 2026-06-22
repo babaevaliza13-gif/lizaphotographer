@@ -7,6 +7,8 @@ const status = document.querySelector("[data-form-status]");
 
 applyTheme();
 initMobileMenu();
+prefillSession();
+initNavClose();
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -49,5 +51,27 @@ function initMobileMenu() {
   button.addEventListener("click", () => {
     document.body.classList.toggle("mobile-nav-open");
     button.setAttribute("aria-expanded", String(document.body.classList.contains("mobile-nav-open")));
+  });
+}
+
+function prefillSession() {
+  const params = new URLSearchParams(location.search);
+  const session = params.get("session");
+  if (!session) return;
+  const select = form.querySelector("select[name='session']");
+  if (!select) return;
+  const option = Array.from(select.options).find(
+    (o) => o.value.toLowerCase() === session.toLowerCase()
+  );
+  if (option) select.value = option.value;
+}
+
+function initNavClose() {
+  document.querySelectorAll(".side-nav a").forEach((link) => {
+    link.addEventListener("click", () => {
+      document.body.classList.remove("mobile-nav-open");
+      const button = document.querySelector("[data-mobile-menu-toggle]");
+      if (button) button.setAttribute("aria-expanded", "false");
+    });
   });
 }

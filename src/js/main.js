@@ -135,8 +135,9 @@ function renderAbout() {
           <p>${copy.aboutText}</p>
           <p>${copy.services}</p>
           <div class="service-list">
-            ${config.services.map((service) => `<span>${service}</span>`).join("")}
+            ${config.services.map((service) => `<a class="service-tag" href="/contact?session=${encodeURIComponent(service)}">${service}</a>`).join("")}
           </div>
+          <a class="btn-book" href="/contact">Book a session →</a>
         </div>
       </div>
     </section>

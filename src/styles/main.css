@@ -561,10 +561,38 @@ label {
   margin-top: 28px;
 }
 
-.service-list span {
+.service-list span,
+.service-tag {
+  display: inline-block;
   padding: 10px 14px;
   border: 1px solid var(--line);
   font-size: 12px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.service-tag:hover {
+  background: var(--paper-deep);
+  border-color: var(--rose);
+  color: var(--ink);
+}
+
+.btn-book {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 28px;
+  background: var(--ink);
+  color: var(--white);
+  font-size: 13px;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+}
+
+.btn-book:hover {
+  opacity: 0.8;
 }
 
 .contact-links {
@@ -1128,8 +1156,18 @@ label {
 
   .stage-intro,
   .project-heading {
-    padding: 0 18px 24px;
+    position: static;
+    padding: 18px 18px 24px;
     width: 100%;
+    color: var(--ink);
+    text-shadow: none;
+    background: var(--paper);
+  }
+
+  .stage-intro p,
+  .stage-intro span,
+  .stage-intro h1 {
+    color: var(--ink);
   }
 
   .stage-intro h1,
