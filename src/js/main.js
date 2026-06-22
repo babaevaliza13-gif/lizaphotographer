@@ -158,6 +158,11 @@ function applySeo() {
 
 function bindGlobalEvents() {
   document.addEventListener("click", (event) => {
+    const externalLink = event.target.closest("a[href^='/contact'], a[href^='/login'], a[href^='/admin']");
+    if (externalLink) {
+      location.href = externalLink.getAttribute("href");
+      return;
+    }
     const routeLink = event.target.closest("[data-route]");
     if (routeLink) {
       event.preventDefault();
