@@ -98,7 +98,7 @@
     "uploadDir": "public/uploads"
   },
   "admin": {
-    "passwordHash": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5"
+    "passwordHash": "82ba58e0a683a77f91251d715a5623bbee236e73f405dccd2962f65d57176432"
   },
   "images": {
     "hero": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1800&q=86",
