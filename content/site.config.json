@@ -1,7 +1,7 @@
 {
   "identity": {
-    "name": "Yelyzaveta Babaieva",
-    "role": "Photographer and filmmaker",
+    "name": "Liza Babaieva",
+    "role": "Photographer & Filmmaker",
     "location": "Espoo, Finland",
     "copyright": "All content copyright Liza Babaieva."
   },
@@ -78,8 +78,8 @@
   },
   "seo": {
     "en": {
-      "title": "Yelyzaveta Babaieva - Photographer and filmmaker",
-      "description": "Commercial, editorial and personal photography.\nMoving image work.\nBased in Finland."
+      "title": "Liza Babaieva - Photographer & Filmmaker",
+      "description": "Editorial photography, film portraits and moving image work in Espoo, Finland."
     }
   },
   "contact": {
@@ -98,7 +98,7 @@
     "uploadDir": "public/uploads"
   },
   "admin": {
-    "passwordHash": "82ba58e0a683a77f91251d715a5623bbee236e73f405dccd2962f65d57176432"
+    "passwordHash": "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5"
   },
   "images": {
     "hero": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1800&q=86",
@@ -172,8 +172,7 @@
       "images": [
         "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1300&q=85",
         "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1300&q=85",
-        "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1300&q=85",
-        "https://storage.yandexcloud.net/storage.yasno.media/nat-geo/images/2020/6/25/0fc978aba29e466e8eb4ffc946532d5e.max-997x665.webp"
+        "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1300&q=85"
       ],
       "video": ""
     },
@@ -269,12 +268,11 @@
     }
   ],
   "services": [
-    "Personal photoshoot",
+    "Portrait Session",
+    "Film Photography",
     "Event & Editorial",
-    "Exhibition documentation",
-    "Love story",
-    "Film photography",
-    "Music videos",
-    "Advertising and video art"
+    "Music Videos",
+    "Love Story",
+    "Private Gallery"
   ]
 }
