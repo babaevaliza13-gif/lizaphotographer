@@ -170,9 +170,9 @@
       "year": "2024",
       "color": "#ffffff",
       "images": [
-        "/uploads/1784750773344-compressed-1.jpg",
-        "/uploads/1785065151751-1-1.jpeg",
-        "/uploads/1785065163522-3.jpeg"
+        "/uploads/1785065163522-3.jpeg",
+        "/uploads/1785065305429-6.jpeg",
+        "/uploads/1785065313061-1-1.jpeg"
       ],
       "video": ""
     },
@@ -259,11 +259,7 @@
       "title": "Small Light",
       "year": "2025",
       "color": "#f0e7dc",
-      "images": [
-        "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1300&q=85",
-        "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1300&q=85",
-        "/uploads/1785065219197-6.jpeg"
-      ],
+      "images": [],
       "video": ""
     }
   ],
