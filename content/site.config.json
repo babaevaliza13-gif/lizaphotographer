@@ -13,11 +13,11 @@
         "name": "Warm Minimal",
         "ink": "#211b16",
         "inkSoft": "rgba(33, 27, 22, 0.66)",
-        "paper": "#f4eadc",
-        "paperDeep": "#e9d5bf",
-        "cream": "#f7f0e7",
-        "blush": "#ead6ca",
-        "white": "#fffaf2"
+        "paper": "#ffffff",
+        "paperDeep": "#ffffff",
+        "cream": "#ffffff",
+        "blush": "#ffffff",
+        "white": "#ffffff"
       },
       {
         "id": "soft-gallery",
