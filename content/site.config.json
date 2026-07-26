@@ -176,6 +176,15 @@
         "/uploads/1785065460499-compressed-1.jpg"
       ],
       "video": ""
+    },
+    {
+      "id": "project-2",
+      "type": "Event documentation",
+      "title": "Espoo Cine film festival",
+      "year": "2024",
+      "color": "#ffffff",
+      "images": [],
+      "video": ""
     }
   ],
   "services": [
