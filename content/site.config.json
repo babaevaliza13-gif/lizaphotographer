@@ -183,7 +183,9 @@
       "title": "Espoo Cine film festival",
       "year": "2024",
       "color": "#ffffff",
-      "images": [],
+      "images": [
+        "/uploads/1785597260316-img-5349.jpeg"
+      ],
       "video": ""
     }
   ],
