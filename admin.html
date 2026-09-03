@@ -5,45 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
     <title>Liza Babaieva Admin</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
   </head>
   <body class="admin-body">
     <script>
-      if (sessionStorage.getItem("liza-admin-session") !== "1") {
-        location.replace("/login.html");
-      }
+      if (sessionStorage.getItem("liza-admin-session") !== "1") location.replace("/login");
     </script>
     <main class="admin-shell" data-admin-shell>
       <aside>
         <p class="admin-kicker">Site control</p>
         <h1>Liza Babaieva</h1>
         <nav class="admin-nav">
+          <a href="#projects">Projects &amp; photos</a>
           <a href="#identity">Identity</a>
-          <a href="#appearance">Appearance</a>
-          <a href="#seo">SEO</a>
           <a href="#texts">Texts</a>
-          <a href="#projects">Projects</a>
           <a href="#services">Services</a>
           <a href="#contact">Contact</a>
-          <a href="#database">Database</a>
+          <a href="#seo">SEO</a>
+          <a href="#appearance">Appearance</a>
+          <a href="#publishing">Publishing</a>
           <a href="#security">Security</a>
         </nav>
         <a href="/" target="_blank" rel="noreferrer">Open site</a>
+        <p class="admin-mode" data-admin-mode></p>
         <button type="button" data-logout>Log out</button>
       </aside>
 
-      <form class="admin-panel" data-admin-form>
+      <form class="admin-panel" data-admin-form novalidate>
+        <section id="projects" class="admin-section">
+          <div class="section-head">
+            <h2>Projects &amp; photos</h2>
+            <button type="button" data-add-project>Add project</button>
+          </div>
+          <p class="admin-note">
+            Each project is a section of the site with its own menu item. The first photo of a project is its cover on the home
+            page. Photos are resized and compressed in the browser before upload (max 2000 px, WebP), so you can upload originals.
+          </p>
+          <div data-projects-editor></div>
+        </section>
+
         <section id="identity" class="admin-section">
           <h2>Identity</h2>
-          <label>Name<input name="identity.name" /></label>
+          <label>Name<input name="identity.name" required /></label>
           <label>Role<input name="identity.role" /></label>
-          <label>Location<input name="identity.location" /></label>
-          <label>Copyright<textarea name="identity.copyright" rows="3"></textarea></label>
+          <label>Location<input name="identity.location" placeholder="City, Country" /></label>
+          <label>Copyright line<textarea name="identity.copyright" rows="2"></textarea></label>
+          <div class="image-editor">
+            <p>About page photo</p>
+            <div class="image-row">
+              <img class="thumb" data-thumb data-about-thumb src="" alt="" loading="lazy" decoding="async" />
+              <input name="images.about" placeholder="https://... or /uploads/..." />
+              <div class="image-row-actions">
+                <button type="button" data-upload-about>Upload photo…</button>
+                <input type="file" accept="image/*" hidden data-upload-about-input />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="texts" class="admin-section">
+          <h2>Text content</h2>
+          <div class="admin-lang-grid" data-language-fields></div>
+        </section>
+
+        <section id="services" class="admin-section">
+          <h2>Services</h2>
+          <label>One service per line (shown on the About page and in the contact form)<textarea name="services" rows="8"></textarea></label>
+        </section>
+
+        <section id="contact" class="admin-section">
+          <h2>Contact</h2>
+          <label>Telegram URL<input name="contact.telegramUrl" type="url" /></label>
+          <label>Instagram URL<input name="contact.instagramUrl" type="url" /></label>
+          <label>Public email<input name="contact.email" type="email" /></label>
+          <label>Notification email<input name="contact.notificationEmail" type="email" /></label>
+          <p class="admin-note">Telegram bot token, chat ID and the email API key live in Vercel environment variables, not here.</p>
+        </section>
+
+        <section id="seo" class="admin-section">
+          <h2>SEO</h2>
+          <div class="admin-lang-grid" data-seo-fields></div>
         </section>
 
         <section id="appearance" class="admin-section">
@@ -52,64 +97,29 @@
           <div class="theme-grid" data-theme-fields></div>
         </section>
 
-        <section id="seo" class="admin-section">
-          <h2>SEO</h2>
-          <div class="admin-lang-grid" data-seo-fields></div>
-        </section>
-
-        <section id="texts" class="admin-section">
-          <h2>Text content</h2>
-          <div class="admin-lang-grid" data-language-fields></div>
-        </section>
-
-        <section id="projects" class="admin-section">
-          <div class="section-head">
-            <h2>Projects, images and video</h2>
-            <button type="button" data-add-project>Add project</button>
-          </div>
-          <div data-projects-editor></div>
-        </section>
-
-        <section id="services" class="admin-section">
-          <h2>Services</h2>
-          <label>One service per line<textarea name="services" rows="8"></textarea></label>
-        </section>
-
-        <section id="contact" class="admin-section">
-          <h2>Contact and notifications</h2>
-          <label>Telegram URL<input name="contact.telegramUrl" type="url" /></label>
-          <label>Instagram URL<input name="contact.instagramUrl" type="url" /></label>
-          <label>Email<input name="contact.email" type="email" /></label>
-          <label>Notification email<input name="contact.notificationEmail" type="email" /></label>
-          <p class="admin-note">Telegram bot token, chat ID and email API key are stored in Vercel environment variables, not in browser code.</p>
-        </section>
-
-        <section id="database" class="admin-section">
-          <h2>Vercel and GitHub storage</h2>
-          <label>Provider
-            <select name="database.provider">
-              <option value="vercel-github">Vercel API + GitHub repository</option>
-              <option value="local">Local browser fallback</option>
-            </select>
-          </label>
+        <section id="publishing" class="admin-section">
+          <h2>Publishing</h2>
+          <p class="admin-note">
+            Saving writes <code>content/site.config.json</code> and uploaded photos to the GitHub repository. Vercel then rebuilds the
+            site automatically — changes appear online about a minute after saving.
+          </p>
           <label>Content JSON path<input name="database.contentPath" /></label>
           <label>Upload folder<input name="database.uploadDir" /></label>
-          <p class="admin-note">Set GitHub and notification secrets in Vercel Project Settings -> Environment Variables.</p>
-          <button type="button" data-test-database>Validate API</button>
-          <p data-database-status role="status"></p>
+          <button type="button" data-test-database>Check server status</button>
+          <p class="admin-note" data-database-status role="status"></p>
         </section>
 
         <section id="security" class="admin-section">
           <h2>Admin password</h2>
-          <label>New password<input name="newPassword" type="password" autocomplete="new-password" /></label>
-          <p class="admin-note">The password hash is saved with the site config. For the first deployment, the default password is 12345.</p>
+          <label>New password<input name="newPassword" type="password" autocomplete="new-password" minlength="6" /></label>
+          <p class="admin-note">Leave empty to keep the current password. The new password is active right after saving.</p>
         </section>
 
         <div class="admin-actions sticky-actions">
-          <button type="submit">Save all changes</button>
+          <button type="submit" data-save>Save &amp; publish</button>
           <button type="button" data-export>Export JSON</button>
-          <button type="button" data-reset>Reset</button>
-          <p data-admin-status role="status"></p>
+          <button type="button" data-reload>Reload from server</button>
+          <p data-admin-status role="status" aria-live="polite"></p>
         </div>
       </form>
     </main>

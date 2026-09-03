@@ -1,33 +1,36 @@
-import "../styles/main.css";
-import { loadConfigAsync } from "./site.config.js";
-
-const defaultPasswordHash = "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5";
-const config = await loadConfigAsync();
 const form = document.querySelector("[data-login-form]");
 const status = document.querySelector("[data-login-status]");
+const button = form.querySelector("button[type='submit']");
 
 if (sessionStorage.getItem("liza-admin-session") === "1") {
-  location.replace("/admin.html");
+  location.replace("/admin");
 }
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const password = String(new FormData(form).get("password") || "");
-
-  if (await verifyRemotePassword(password)) {
-    enterAdmin(password);
+  const password = String(new FormData(form).get("password") || "").trim();
+  if (!password) {
+    status.textContent = "Enter the password.";
     return;
   }
 
-  const hash = await hashText(password);
-  const savedHash = config.admin?.passwordHash || defaultPasswordHash;
+  button.disabled = true;
+  status.textContent = "Checking...";
 
-  if (hash === savedHash || password === "12345") {
-    enterAdmin(password);
+  const result = await verifyRemotePassword(password);
+
+  if (result === "ok") {
+    enterAdmin(password, "remote");
+    return;
+  }
+  if (result === "no-api") {
+    // Local development without the API: open the admin in browser-only mode.
+    enterAdmin(password, "local");
     return;
   }
 
-  status.textContent = "Wrong password.";
+  button.disabled = false;
+  status.textContent = result === "wrong" ? "Wrong password." : "The server is not available right now. Try again in a minute.";
 });
 
 async function verifyRemotePassword(password) {
@@ -36,20 +39,18 @@ async function verifyRemotePassword(password) {
       method: "POST",
       headers: { "x-admin-password": password }
     });
-    return response.ok;
+    if (response.ok) return "ok";
+    if (response.status === 401) return "wrong";
+    if (response.status === 404) return "no-api";
+    return "error";
   } catch {
-    return false;
+    return "no-api";
   }
 }
 
-function enterAdmin(password) {
+function enterAdmin(password, mode) {
   sessionStorage.setItem("liza-admin-session", "1");
   sessionStorage.setItem("liza-admin-password", password);
-  location.replace("/admin.html");
-}
-
-async function hashText(text) {
-  const data = new TextEncoder().encode(text);
-  const buffer = await crypto.subtle.digest("SHA-256", data);
-  return [...new Uint8Array(buffer)].map((byte) => byte.toString(16).padStart(2, "0")).join("");
+  sessionStorage.setItem("liza-admin-mode", mode);
+  location.replace("/admin");
 }

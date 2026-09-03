@@ -4,33 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Contact Liza Babaieva for photography and moving image bookings." />
+    <meta name="theme-color" content="#f4eadc" />
     <title>Contact - Liza Babaieva</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
   </head>
   <body>
-    <aside class="side-rail">
+    <aside class="side-rail" data-header>
       <a class="brand" href="/">Liza Babaieva</a>
-      <button class="mobile-menu-toggle" type="button" data-mobile-menu-toggle aria-expanded="false">Menu</button>
-      <nav class="side-nav" aria-label="Primary navigation">
+      <button class="mobile-menu-toggle" type="button" data-mobile-menu-toggle aria-expanded="false" aria-controls="primary-nav">Menu</button>
+      <nav class="side-nav" id="primary-nav" data-menu-links aria-label="Primary navigation">
         <a href="/">Home</a>
-        <a href="/#portraits">Portraits</a>
-        <a href="/#events">Events</a>
-        <a href="/#exhibition">Exhibition</a>
-        <a href="/#love-story">Love Story</a>
-        <a href="/#commercial">Commercial</a>
-        <a href="/#festival">Festival</a>
-        <a href="/#music-videos">Music Videos</a>
-        <a href="/#jewellery">Jewellery</a>
         <a href="/#about">About</a>
-        <a href="/contact">Contact</a>
+        <a href="/contact" class="is-active" aria-current="page">Contact</a>
       </nav>
       <div class="rail-footer">
-        <span></span>
-        <p>All content copyright the artist. No commercial use without express written permission.</p>
-        <p>© 2026 Liza Babaieva.</p>
+        <span class="rail-line"></span>
+        <p data-copyright>All content copyright the artist. No commercial use without express written permission.</p>
+        <p>© <span data-year>2026</span> <span data-brand-name>Liza Babaieva</span>.</p>
       </div>
     </aside>
 
@@ -38,32 +32,26 @@
       <section class="contact-route page page-blush">
         <div class="contact-copy">
           <p class="eyebrow">Contact / Booking</p>
-          <h1>Tell Liza what the image should feel like.</h1>
-          <p>For bookings, collaborations and moving image projects, send a short note.</p>
-          <div class="contact-links">
+          <h1 data-contact-title>Tell Liza what the image should feel like.</h1>
+          <p data-contact-lead>For bookings, collaborations and moving image projects, send a short note.</p>
+          <div class="contact-links" data-contact-links>
             <a href="https://t.me/lizababaieva" target="_blank" rel="noreferrer">Telegram</a>
             <a href="https://instagram.com/babaieva_ph" target="_blank" rel="noreferrer">Instagram</a>
-            <a href="mailto:liza@babaieva.fi">liza@babaieva.fi</a>
           </div>
         </div>
 
-        <form class="contact-form" data-static-contact-form>
-          <label>Name<input name="name" required autocomplete="name" /></label>
-          <label>Contact<input name="contact" required autocomplete="email" placeholder="@telegram / email" /></label>
+        <form class="contact-form" data-static-contact-form novalidate>
+          <label>Name<input name="name" required autocomplete="name" maxlength="120" /></label>
+          <label>Contact<input name="contact" required autocomplete="email" placeholder="@telegram / email" maxlength="160" /></label>
           <label>
             Session
-            <select name="session" required>
-              <option>Portrait Session</option>
-              <option>Film Photography</option>
-              <option>Event & Editorial</option>
-              <option>Music Videos</option>
-              <option>Love Story</option>
-              <option>Private Gallery</option>
+            <select name="session" data-session-select>
+              <option>Personal photoshoot</option>
             </select>
           </label>
-          <label>Message<textarea name="message" required rows="5"></textarea></label>
+          <label>Message<textarea name="message" required rows="5" maxlength="2000"></textarea></label>
           <button type="submit">Send enquiry</button>
-          <p data-form-status role="status"></p>
+          <p data-form-status role="status" aria-live="polite"></p>
         </form>
       </section>
     </main>

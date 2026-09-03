@@ -1,208 +1,93 @@
-export const defaultConfig = {
-  identity: {
-    name: "Liza Babaieva",
-    role: "Photographer & Filmmaker",
-    location: "Espoo, Finland",
-    copyright: "All content copyright Liza Babaieva."
-  },
-  appearance: {
-    theme: "warm-minimal",
-    themes: [
-      { id: "warm-minimal", name: "Warm Minimal", ink: "#211b16", inkSoft: "rgba(33, 27, 22, 0.68)", paper: "#f4eadc", paperDeep: "#e9d5bf", cream: "#f7f0e7", blush: "#ead6ca", white: "#fffaf2" },
-      { id: "soft-gallery", name: "Soft Gallery", ink: "#20201d", inkSoft: "rgba(32, 32, 29, 0.62)", paper: "#f2eee7", paperDeep: "#ded6cb", cream: "#faf7f1", blush: "#e8dfd4", white: "#fffdf8" },
-      { id: "linen", name: "Linen", ink: "#28231d", inkSoft: "rgba(40, 35, 29, 0.66)", paper: "#efe5d4", paperDeep: "#dcc8ae", cream: "#f8f1e6", blush: "#e6d1bf", white: "#fff9ee" },
-      { id: "porcelain", name: "Porcelain", ink: "#1d1e1d", inkSoft: "rgba(29, 30, 29, 0.64)", paper: "#f6f4ef", paperDeep: "#dfddd5", cream: "#fbfaf6", blush: "#e4ded5", white: "#ffffff" },
-      { id: "rose-paper", name: "Rose Paper", ink: "#251b1b", inkSoft: "rgba(37, 27, 27, 0.64)", paper: "#f2e4df", paperDeep: "#ddc5be", cream: "#f8efeb", blush: "#e7cfc8", white: "#fff8f5" },
-      { id: "oat", name: "Oat", ink: "#242119", inkSoft: "rgba(36, 33, 25, 0.64)", paper: "#eee6d9", paperDeep: "#d9ccb9", cream: "#f8f3ea", blush: "#e2d6c8", white: "#fffaf0" }
-    ]
-  },
-  seo: {
-    en: {
-      title: "Liza Babaieva - Photographer & Filmmaker",
-      description: "Editorial photography, film portraits and moving image work in Espoo, Finland."
-    }
-  },
-  contact: {
-    telegramUrl: "https://t.me/lizababaieva",
-    instagramUrl: "https://instagram.com/babaieva_ph",
-    email: "liza@babaieva.fi",
-    notificationEmail: "liza@babaieva.fi",
-    telegram: {
-      botToken: "",
-      chatId: ""
-    }
-  },
-  database: {
-    provider: "vercel-github",
-    contentPath: "content/site.config.json",
-    uploadDir: "public/uploads"
-  },
-  admin: {
-    passwordHash: "5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5"
-  },
-  images: {
-    hero: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1800&q=86",
-    about: "https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?auto=format&fit=crop&w=1200&q=86"
-  },
-  nav: [
+// Public site content is baked into the bundle at build time from content/site.config.json
+// (see scripts/build-content.mjs). No API round-trip is needed to render a page.
+import siteContent from "./site.content.js";
+
+export const defaultConfig = siteContent;
+
+const draftKey = "liza-site-config";
+
+export function navItems(config) {
+  return [
     { id: "home", label: "Home" },
-    { id: "portraits", label: "Portraits" },
-    { id: "events", label: "Events" },
-    { id: "exhibition", label: "Exhibition" },
-    { id: "love-story", label: "Love Story" },
-    { id: "commercial", label: "Commercial" },
-    { id: "festival", label: "Festival" },
-    { id: "music-videos", label: "Music Videos" },
-    { id: "jewellery", label: "Jewellery" },
+    ...(config.projects || []).map((project) => ({ id: project.id, label: project.label || project.title || project.type })),
     { id: "about", label: "About" },
     { id: "contact", label: "Contact" }
-  ],
-  languages: {
-    en: {
-      enter: "Enter portfolio",
-      heroLine: "Intimate images for people, artists and stories that need atmosphere.",
-      selected: "Selected work",
-      aboutTitle: "Images that feel remembered, not performed.",
-      contactTitle: "Tell Liza what the image should feel like.",
-      aboutText:
-        "Liza works between documentary intimacy and composed editorial feeling. Her images are quiet, tactile and emotionally direct: soft grain, natural movement, warm light, and enough space for a person to feel real.",
-      services: "Portraits, love stories, events, artist projects, film photography and music videos.",
-      contactLead: "For bookings, collaborations and moving image projects, send a short note."
-    }
-  },
-  projects: [
-    {
-      id: "portraits",
-      type: "Portraits",
-      title: "Soft Rooms",
-      year: "2026",
-      color: "#efe3d4",
-      images: [
-        "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1300&q=85",
-        "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1300&q=85",
-        "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1300&q=85"
-      ]
-    },
-    {
-      id: "events",
-      type: "Events",
-      title: "Event Photography",
-      year: "2026",
-      color: "#f1e2d1",
-      images: [
-        "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1300&q=85",
-        "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1300&q=85",
-        "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1300&q=85"
-      ]
-    },
-    {
-      id: "exhibition",
-      type: "Exhibition",
-      title: "Gallery Opening",
-      year: "2026",
-      color: "#eee6dd",
-      images: [
-        "https://images.unsplash.com/photo-1545987796-200677ee1011?auto=format&fit=crop&w=1300&q=85",
-        "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1300&q=85",
-        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1300&q=85"
-      ]
-    },
-    {
-      id: "love-story",
-      type: "Love Story",
-      title: "Quiet Vows",
-      year: "2025",
-      color: "#ead8c3",
-      images: [
-        "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?auto=format&fit=crop&w=1300&q=85",
-        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1300&q=85",
-        "https://images.unsplash.com/photo-1513379733131-47fc74b45fc7?auto=format&fit=crop&w=1300&q=85"
-      ]
-    },
-    {
-      id: "commercial",
-      type: "Commercial",
-      title: "Quiet Campaign",
-      year: "2025",
-      color: "#f2e8d8",
-      images: [
-        "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=1300&q=85",
-        "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1300&q=85",
-        "https://images.unsplash.com/photo-1508186225823-0963cf9ab0de?auto=format&fit=crop&w=1300&q=85"
-      ]
-    },
-    {
-      id: "festival",
-      type: "Festival",
-      title: "Summer Field",
-      year: "2026",
-      color: "#eadfce",
-      images: [
-        "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1300&q=85",
-        "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1300&q=85",
-        "https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?auto=format&fit=crop&w=1300&q=85"
-      ]
-    },
-    {
-      id: "music-videos",
-      type: "Music Videos",
-      title: "Held In Motion",
-      year: "2026",
-      color: "#e7d2bd",
-      video: "https://player.vimeo.com/video/76979871",
-      images: [
-        "/uploads/1782048534831-777.png",
-        "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1300&q=85"
-      ]
-    },
-    {
-      id: "jewellery",
-      type: "Jewellery",
-      title: "Small Light",
-      year: "2025",
-      color: "#f0e7dc",
-      images: [
-        "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1300&q=85",
-        "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1300&q=85",
-        "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1300&q=85"
-      ]
-    }
-  ],
-  services: [
-    "Portrait Session",
-    "Film Photography",
-    "Event & Editorial",
-    "Music Videos",
-    "Love Story",
-    "Private Gallery"
-  ]
-};
+  ];
+}
 
-export function loadConfig() {
+export function applyTheme(config) {
+  const themes = config.appearance?.themes || [];
+  const theme = themes.find((item) => item.id === config.appearance?.theme) || themes[0];
+  if (!theme) return;
+  const root = document.documentElement.style;
+  root.setProperty("--ink", theme.ink);
+  root.setProperty("--ink-soft", theme.inkSoft);
+  root.setProperty("--paper", theme.paper);
+  root.setProperty("--paper-deep", theme.paperDeep);
+  root.setProperty("--cream", theme.cream);
+  root.setProperty("--blush", theme.blush);
+  root.setProperty("--white", theme.white);
+}
+
+export function escapeHtml(value = "") {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+export function slugify(value = "") {
+  return String(value)
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/* ---------- admin helpers (browser only) ---------- */
+
+export function loadDraft() {
   try {
-    const saved = JSON.parse(localStorage.getItem("liza-site-config") || "{}");
-    return mergeConfig(defaultConfig, saved);
+    return JSON.parse(localStorage.getItem(draftKey) || "null");
   } catch {
-    return defaultConfig;
+    return null;
   }
 }
 
-export async function loadConfigAsync(password = "") {
+export function saveDraft(config) {
+  try {
+    localStorage.setItem(draftKey, JSON.stringify(config));
+  } catch {
+    /* storage full or unavailable – the remote save is what matters */
+  }
+}
+
+export function clearDraft() {
+  localStorage.removeItem(draftKey);
+}
+
+/**
+ * Loads the full config (including admin fields) from the API.
+ * Resolves { config, source } where source is "remote" or "local".
+ */
+export async function loadAdminConfig(password = "") {
   try {
     const response = await fetch(`/api/config?ts=${Date.now()}`, {
       cache: "no-store",
       headers: password ? { "x-admin-password": password } : {}
     });
-    if (!response.ok) throw new Error("Config API unavailable");
-    const remote = await response.json();
-    return mergeConfig(defaultConfig, remote);
+    if (response.ok) {
+      const remote = await response.json();
+      return { config: mergeConfig(defaultConfig, remote), source: "remote", error: "" };
+    }
+    const payload = await response.json().catch(() => ({}));
+    return { config: mergeConfig(defaultConfig, loadDraft() || {}), source: "local", error: payload.error || `API returned ${response.status}` };
   } catch {
-    return loadConfig();
+    return { config: mergeConfig(defaultConfig, loadDraft() || {}), source: "local", error: "API is not reachable" };
   }
-}
-
-export function saveConfig(config) {
-  localStorage.setItem("liza-site-config", JSON.stringify(config));
 }
 
 export async function saveConfigRemote(config, password) {
@@ -216,36 +101,50 @@ export async function saveConfigRemote(config, password) {
   });
   if (!response.ok) {
     const error = await response.json().catch(() => ({}));
-    throw new Error(error.error || "Could not save remote config");
+    throw new Error(error.error || `Could not save (${response.status})`);
   }
   return response.json();
 }
 
-function mergeConfig(base, saved) {
-  return {
+export function mergeConfig(base, saved = {}) {
+  const merged = {
     ...base,
     ...saved,
     identity: { ...base.identity, ...(saved.identity || {}) },
     appearance: {
       ...base.appearance,
       ...(saved.appearance || {}),
-      themes: (saved.appearance && saved.appearance.themes) || base.appearance.themes
+      themes: saved.appearance?.themes?.length ? saved.appearance.themes : base.appearance.themes
     },
     seo: { ...base.seo, ...(saved.seo || {}) },
     contact: {
       ...base.contact,
       ...(saved.contact || {}),
-      telegram: { ...base.contact.telegram, ...((saved.contact || {}).telegram || {}) }
+      telegram: { ...(base.contact?.telegram || {}), ...(saved.contact?.telegram || {}) }
     },
     database: { ...base.database, ...(saved.database || {}) },
-    admin: {
-      ...base.admin,
-      ...(saved.admin || {}),
-      passwordHash: (saved.admin && saved.admin.passwordHash) || base.admin.passwordHash
-    },
+    admin: { ...(base.admin || {}), ...(saved.admin || {}) },
     images: { ...base.images, ...(saved.images || {}) },
-    languages: { en: { ...base.languages.en, ...((saved.languages || {}).en || {}) } },
-    projects: saved.projects || base.projects,
-    services: saved.services || base.services
+    languages: { en: { ...base.languages.en, ...(saved.languages?.en || {}) } },
+    projects: Array.isArray(saved.projects) ? saved.projects : base.projects,
+    services: Array.isArray(saved.services) ? saved.services : base.services
+  };
+  delete merged.nav;
+  merged.projects = merged.projects.map(normalizeProject);
+  return merged;
+}
+
+export function normalizeProject(project, index = 0) {
+  const title = String(project.title || "").trim();
+  const type = String(project.type || "").trim();
+  return {
+    id: slugify(project.id || title || `project-${index + 1}`) || `project-${index + 1}`,
+    label: String(project.label || "").trim(),
+    type,
+    title,
+    year: String(project.year || "").trim(),
+    color: project.color || "#f4eadc",
+    video: String(project.video || "").trim(),
+    images: (project.images || []).map((src) => String(src || "").trim()).filter(Boolean)
   };
 }

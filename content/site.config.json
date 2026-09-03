@@ -101,55 +101,8 @@
     "passwordHash": "82ba58e0a683a77f91251d715a5623bbee236e73f405dccd2962f65d57176432"
   },
   "images": {
-    "hero": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1800&q=86",
-    "about": "https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?auto=format&fit=crop&w=1200&q=86"
+    "about": "/uploads/liza-babaieva-about.webp"
   },
-  "nav": [
-    {
-      "id": "home",
-      "label": "Home"
-    },
-    {
-      "id": "portraits",
-      "label": "Portraits"
-    },
-    {
-      "id": "events",
-      "label": "Events"
-    },
-    {
-      "id": "exhibition",
-      "label": "Exhibition"
-    },
-    {
-      "id": "love-story",
-      "label": "Love Story"
-    },
-    {
-      "id": "commercial",
-      "label": "Commercial"
-    },
-    {
-      "id": "festival",
-      "label": "Festival"
-    },
-    {
-      "id": "music-videos",
-      "label": "Music Videos"
-    },
-    {
-      "id": "jewellery",
-      "label": "Jewellery"
-    },
-    {
-      "id": "about",
-      "label": "About"
-    },
-    {
-      "id": "contact",
-      "label": "Contact"
-    }
-  ],
   "languages": {
     "en": {
       "enter": "Enter portfolio",
@@ -157,34 +110,36 @@
       "selected": "Selected work",
       "aboutTitle": "",
       "contactTitle": "Contact for commissions and collaboration",
-      "aboutText": "Yelyzaveta is a Ukrainian artist, photographer and filmmaker based in Finland.\nIn her creative practice she works in the intersection of photography, moving image, mixed\nmedia animation and collage. The main focus for her is approaching storytelling\nthrough visual language, blending both traditional cinematic approaches\nand experimental techniques.",
-      "services": "Personal photoshoot, events documentation, love story, film photography, commercials, moving image and music videos .",
+      "aboutText": "Yelyzaveta is a Ukrainian artist, photographer and filmmaker based in Finland. In her creative practice she works in the intersection of photography, moving image, mixed media animation and collage. The main focus for her is approaching storytelling through visual language, blending both traditional cinematic approaches and experimental techniques.",
+      "services": "Personal photoshoot, events documentation, love story, film photography, commercials, moving image and music videos.",
       "contactLead": "For bookings, collaborations and moving image projects, send a short note."
     }
   },
   "projects": [
     {
       "id": "portraits",
+      "label": "Portraits",
       "type": "photography, handmade embroidery, collage",
       "title": "Yuliia",
       "year": "2024",
       "color": "#ffffff",
       "images": [
-        "/uploads/1785065163522-3.jpeg",
-        "/uploads/1785065305429-6.jpeg",
-        "/uploads/1785065313061-1-1.jpeg",
-        "/uploads/1785065460499-compressed-1.jpg"
+        "/uploads/1785065163522-3.webp",
+        "/uploads/1785065305429-6.webp",
+        "/uploads/1785065313061-1-1.webp",
+        "/uploads/1785065460499-compressed-1.webp"
       ],
       "video": ""
     },
     {
-      "id": "Festival",
+      "id": "festival",
+      "label": "Festival",
       "type": "Event documentation",
       "title": "Espoo Cine film festival",
       "year": "2024",
       "color": "#ffffff",
       "images": [
-        "/uploads/1785597260316-img-5349.jpeg"
+        "/uploads/1785597260316-img-5349.webp"
       ],
       "video": ""
     }
