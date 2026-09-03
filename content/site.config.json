@@ -117,31 +117,157 @@
   },
   "projects": [
     {
-      "id": "portraits",
-      "label": "Portraits",
+      "id": "personal-photoshoot",
+      "label": "Personal photoshoot",
+      "type": "Portraits",
+      "title": "Personal photoshoot",
+      "year": "",
+      "color": "#ffffff",
+      "video": "",
+      "images": [
+        "/uploads/personal-photoshoot-04-img-37172.webp",
+        "/uploads/personal-photoshoot-01-beeda-portrait.webp",
+        "/uploads/personal-photoshoot-02-bunny-portrait-1.webp",
+        "/uploads/personal-photoshoot-03-bunny-portrait-2.webp",
+        "/uploads/personal-photoshoot-05-img-38412.webp",
+        "/uploads/personal-photoshoot-06-kate-3.webp",
+        "/uploads/personal-photoshoot-07-kate-05.webp",
+        "/uploads/personal-photoshoot-08-kate-06-rec.webp",
+        "/uploads/personal-photoshoot-09-viktoriia-portrait-1.webp",
+        "/uploads/personal-photoshoot-10-viktoriia-portrait-2.webp",
+        "/uploads/personal-photoshoot-11-yuliia-portrait.webp"
+      ]
+    },
+    {
+      "id": "film-photography",
+      "label": "Film photography",
+      "type": "",
+      "title": "Film photography",
+      "year": "",
+      "color": "#ffffff",
+      "video": "",
+      "images": [
+        "/uploads/film-photography-11-film-photos-9.webp",
+        "/uploads/film-photography-01-film-photos-1.webp",
+        "/uploads/film-photography-02-film-photos-1.webp",
+        "/uploads/film-photography-03-film-photos-2.webp",
+        "/uploads/film-photography-04-film-photos-2.webp",
+        "/uploads/film-photography-05-film-photos-3.webp",
+        "/uploads/film-photography-06-film-photos-4.webp",
+        "/uploads/film-photography-07-film-photos-5.webp",
+        "/uploads/film-photography-08-film-photos-6.webp",
+        "/uploads/film-photography-09-film-photos-7.webp",
+        "/uploads/film-photography-10-film-photos-8.webp",
+        "/uploads/film-photography-12-film-photos-10.webp",
+        "/uploads/film-photography-13-film-photos-11.webp",
+        "/uploads/film-photography-14-film-photos-12.webp",
+        "/uploads/film-photography-15-film-photos-13.webp",
+        "/uploads/film-photography-16-film-photos-14.webp",
+        "/uploads/film-photography-17-film-photos-15.webp"
+      ]
+    },
+    {
+      "id": "event-photography",
+      "label": "Event photography",
+      "type": "Event documentation",
+      "title": "Event photography",
+      "year": "",
+      "color": "#ffffff",
+      "video": "",
+      "images": [
+        "/uploads/event-photography-03-espoo-cine-film-festival-1.webp",
+        "/uploads/event-photography-01-cinestesia-seminar.webp",
+        "/uploads/event-photography-02-espoo-cine-film-festival-1.webp",
+        "/uploads/event-photography-04-espoo-cine-film-festival-2.webp",
+        "/uploads/event-photography-05-espoo-cine-film-festival-2.webp",
+        "/uploads/event-photography-06-espoo-cine-film-festival-3.webp",
+        "/uploads/event-photography-07-espoo-cine-film-festival-4.webp"
+      ]
+    },
+    {
+      "id": "love-story",
+      "label": "Love story",
+      "type": "",
+      "title": "Love story",
+      "year": "",
+      "color": "#ffffff",
+      "video": "",
+      "images": [
+        "/uploads/love-story-07-21.webp",
+        "/uploads/love-story-01-1.webp",
+        "/uploads/love-story-02-3.webp",
+        "/uploads/love-story-03-7.webp",
+        "/uploads/love-story-04-10.webp",
+        "/uploads/love-story-05-11.webp",
+        "/uploads/love-story-06-19.webp"
+      ]
+    },
+    {
+      "id": "exhibition",
+      "label": "Exhibition",
+      "type": "",
+      "title": "Exhibition",
+      "year": "2025",
+      "color": "#ffffff",
+      "video": "",
+      "images": [
+        "/uploads/exhibition-01-9-10-2025-2.webp",
+        "/uploads/exhibition-02-9-10-2025-6.webp",
+        "/uploads/exhibition-03-9-10-2025-7.webp",
+        "/uploads/exhibition-04-9-10-2025-11.webp",
+        "/uploads/exhibition-05-9-10-2025-12.webp"
+      ]
+    },
+    {
+      "id": "commercial-photography",
+      "label": "Commercial photography",
+      "type": "",
+      "title": "Commercial photography",
+      "year": "",
+      "color": "#ffffff",
+      "video": "",
+      "images": [
+        "/uploads/commercial-photography-03-img-9458.webp",
+        "/uploads/commercial-photography-01-img-9354.webp",
+        "/uploads/commercial-photography-02-img-9356.webp"
+      ]
+    },
+    {
+      "id": "music-video",
+      "label": "Music video",
+      "type": "Moving image",
+      "title": "Music video",
+      "year": "",
+      "color": "#ffffff",
+      "video": "",
+      "images": [
+        "/uploads/music-video-01-1.webp",
+        "/uploads/music-video-02-crazy-man-music-video-1.webp",
+        "/uploads/music-video-03-crazy-man-music-video-2.webp",
+        "/uploads/music-video-04-crazy-man-music-video-3.webp",
+        "/uploads/music-video-05-crazy-man-music-video-4.webp",
+        "/uploads/music-video-06-crazy-man-music-video-5.webp",
+        "/uploads/music-video-07-crazy-man-music-video-6.webp",
+        "/uploads/music-video-08-just-shine-music-video-1.webp",
+        "/uploads/music-video-09-just-shine-music-video-2.webp",
+        "/uploads/music-video-10-just-shine-music-video-3.webp",
+        "/uploads/music-video-11-just-shine-music-video-4.webp",
+        "/uploads/music-video-12-just-shine-music-video-5.webp"
+      ]
+    },
+    {
+      "id": "yuliia",
+      "label": "Yuliia",
       "type": "photography, handmade embroidery, collage",
       "title": "Yuliia",
       "year": "2024",
       "color": "#ffffff",
+      "video": "",
       "images": [
         "/uploads/1785065163522-3.webp",
         "/uploads/1785065305429-6.webp",
-        "/uploads/1785065313061-1-1.webp",
-        "/uploads/1785065460499-compressed-1.webp"
-      ],
-      "video": ""
-    },
-    {
-      "id": "festival",
-      "label": "Festival",
-      "type": "Event documentation",
-      "title": "Espoo Cine film festival",
-      "year": "2024",
-      "color": "#ffffff",
-      "images": [
-        "/uploads/1785597260316-img-5349.webp"
-      ],
-      "video": ""
+        "/uploads/1785065313061-1-1.webp"
+      ]
     }
   ],
   "services": [

@@ -131,7 +131,7 @@ function renderProject(project) {
     <section class="portfolio-stage project-page" style="--page-bg:${esc(project.color)}">
       <div class="horizontal-run project-run" data-gallery>
         <div class="project-heading reveal">
-          <p class="eyebrow">${esc([project.type, project.year].filter(Boolean).join(" / "))}</p>
+          ${[project.type, project.year].some(Boolean) ? `<p class="eyebrow">${esc([project.type, project.year].filter(Boolean).join(" / "))}</p>` : ""}
           <h1>${esc(project.title)}</h1>
           ${copy.selected ? `<p>${esc(copy.selected)}</p>` : ""}
           <p class="run-hint" aria-hidden="true">Scroll to explore →</p>

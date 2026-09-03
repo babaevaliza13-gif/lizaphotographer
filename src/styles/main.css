@@ -340,7 +340,8 @@ h1 {
 .strip-image img {
   width: auto;
   height: 100%;
-  max-width: none;
+  max-width: calc(100vw - var(--rail) - 80px);
+  object-fit: contain;
   transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
